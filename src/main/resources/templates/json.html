@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON View</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Count</th>
+            <th>ID</th>
+        </tr>
+        <tr th:each="item : ${jsonData}">
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.count}"></td>
+            <td th:text="${item.id}"></td>
+        </tr>
+    </table>
+</body>
+</html>
