@@ -18,8 +18,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 @Controller
 public class HarjoitustyoController {
 
-    @Autowired
-    private NoteRepository noteRepository;
+    //@Autowired
+    //private NoteRepository noteRepository;
     
     @GetMapping("/")
     public String home(Model model) {
