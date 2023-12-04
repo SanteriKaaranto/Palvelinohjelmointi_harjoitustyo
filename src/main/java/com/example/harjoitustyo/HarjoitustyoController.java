@@ -3,6 +3,7 @@ package com.example.harjoitustyo;
 import java.io.IOException;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,9 @@ import com.fasterxml.jackson.core.type.TypeReference;
 
 @Controller
 public class HarjoitustyoController {
+
+    @Autowired
+    private NoteRepository noteRepository;
     
     @GetMapping("/")
     public String home(Model model) {
@@ -32,6 +36,7 @@ public class HarjoitustyoController {
         return "redirect:/";
     }
 
+    // json testi
    @GetMapping("/json")
     public String getJsonData(Model model) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();

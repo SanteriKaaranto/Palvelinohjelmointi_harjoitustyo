@@ -10,6 +10,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Item {
     private String name;
-    private String count;
     private int id;
 }

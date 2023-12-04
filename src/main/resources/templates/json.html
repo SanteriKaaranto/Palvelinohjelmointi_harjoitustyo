@@ -8,12 +8,10 @@
     <table>
         <tr>
             <th>Name</th>
-            <th>Count</th>
             <th>ID</th>
         </tr>
         <tr th:each="item : ${jsonData}">
             <td th:text="${item.name}"></td>
-            <td th:text="${item.count}"></td>
             <td th:text="${item.id}"></td>
         </tr>
     </table>
