@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -19,13 +21,10 @@ public class HarjoitustyoController {
         return "index";
     }
 
-/*     private String message;
-    // 'content' pitää vastaa HTML:n name='' osiota
-    @PostMapping("/")
-    public String posting(@RequestParam String content) { 
-        this.message = content;
-        System.out.println(message);
+    @PostMapping("/saveNote")
+    public String saveNote(@RequestParam String note) {
+        noteRepository.save(new Notes(null, note));
         return "redirect:/";
-    } */
+    }
 }
 

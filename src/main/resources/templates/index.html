@@ -6,15 +6,15 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <p th:text="${teksti}">testi</p>
+    <h1>Note Database</h1>
 
-    <form action="/" method="POST">
-        <input type="text" name="content"/>
-        <input type="submit"/>
-    </form> -->
+    <form action="/saveNote" method="post" style="padding-bottom: 25px;">
+        <label for="note">Note:</label>
+        <input type="text" id="note" name="note" required>
+        <button type="submit">Save</button>
+    </form>
 
     <table>
-        <h1>Note Database</h1>
         <tr>
             <th>ID</th>
             <th>Note</th>
