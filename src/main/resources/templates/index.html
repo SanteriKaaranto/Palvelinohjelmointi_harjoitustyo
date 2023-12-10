@@ -8,22 +8,34 @@
   </head>
   <body>
     <!-- Login -->
-    <div>
+    <div class="login-buttons">
       <div th:if="${!#authorization.expression('isAuthenticated()')}">
-        <button type="button" onclick="window.location.href='/login'">Login</button>
+        <button type="button" onclick="window.location.href='/login'">
+          Login
+        </button>
+        <p th:unless="${#authorization.expression('isAuthenticated')}">
+          Login to perform actions.
+        </p>
       </div>
       <div th:if="${#authorization.expression('isAuthenticated()')}">
-        <button type="button" onclick="window.location.href='/logout'">Logout</button>
+        <button type="button" onclick="window.location.href='/logout'">
+          Logout
+        </button>
       </div>
     </div>
-    
+
     <h1>Note Database</h1>
 
     <!-- Save note -->
     <form action="/saveNote" method="post" class="saveForm">
       <label for="note">Add note:</label>
       <input type="text" id="note" name="note" maxlength="255" required />
-      <button type="submit">Save</button>
+      <button
+        type="submit"
+        th:disabled="${not #authorization.expression('isAuthenticated')}"
+      >
+        Save
+      </button>
     </form>
 
     <!-- Notes -->
@@ -38,11 +50,21 @@
         <td class="buttons">
           <form action="/updateNote" method="get">
             <input type="hidden" name="id" th:value="${note.id}" />
-            <button type="submit">Update</button>
+            <button
+              type="submit"
+              th:disabled="${not #authorization.expression('isAuthenticated')}"
+            >
+              Update
+            </button>
           </form>
           <form action="/deleteNote" method="get">
             <input type="hidden" name="id" th:value="${note.id}" />
-            <button type="submit">Delete</button>
+            <button
+              type="submit"
+              th:disabled="${not #authorization.expression('isAuthenticated')}"
+            >
+              Delete
+            </button>
           </form>
         </td>
       </tr>
