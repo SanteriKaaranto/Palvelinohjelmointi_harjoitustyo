@@ -20,9 +20,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/", "/home", "styles.css").permitAll()
                         .anyRequest().authenticated())
-                .formLogin((form) -> form
-                        .defaultSuccessUrl("/")
-                        .permitAll())
+                .formLogin((form) -> form.permitAll())
                 .logout((logout) -> logout
                         .logoutSuccessUrl("/")
                         .permitAll())
