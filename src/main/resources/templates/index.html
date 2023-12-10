@@ -7,14 +7,26 @@
     <title>Notes</title>
   </head>
   <body>
+    <!-- Login -->
+    <div>
+      <div th:if="${!#authorization.expression('isAuthenticated()')}">
+        <button type="button" onclick="window.location.href='/login'">Login</button>
+      </div>
+      <div th:if="${#authorization.expression('isAuthenticated()')}">
+        <button type="button" onclick="window.location.href='/logout'">Logout</button>
+      </div>
+    </div>
+    
     <h1>Note Database</h1>
 
+    <!-- Save note -->
     <form action="/saveNote" method="post" class="saveForm">
       <label for="note">Add note:</label>
       <input type="text" id="note" name="note" maxlength="255" required />
       <button type="submit">Save</button>
     </form>
 
+    <!-- Notes -->
     <table>
       <tr class="headers">
         <th>ID</th>
