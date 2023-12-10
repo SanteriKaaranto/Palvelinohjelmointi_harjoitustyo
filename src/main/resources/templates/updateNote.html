@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" th:href="@{/styles.css}" />
     <title>Update Note</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Update Note</h1>
 
     <form action="/updateNote" method="post">
-        <input type="hidden" name="id" th:value="${note.id}" />
-        <label for="updatedNote">Update note:</label>
-        <input type="text" id="updatedNote" name="updatedNote" th:value="${note.note}" required>
-        <button type="submit">Update</button>
+      <input type="hidden" name="id" th:value="${note.id}" />
+      <label for="updatedNote">Update note:</label>
+      <input
+        type="text"
+        id="updatedNote"
+        name="updatedNote"
+        th:value="${note.note}"
+        required
+      />
+      <button type="submit">Update</button>
     </form>
-</body>
+  </body>
 </html>
-
-
