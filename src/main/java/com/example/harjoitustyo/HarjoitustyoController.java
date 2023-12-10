@@ -33,4 +33,25 @@ public class HarjoitustyoController {
         noteRepository.deleteById(id);
         return "redirect:/";
     }
+
+    // Update
+
+    // Update get
+    @GetMapping("/updateNote")
+    public String updateNoteForm(@RequestParam Long id, Model model) {
+        Notes existingNote = noteRepository.findById(id).orElse(null);
+        model.addAttribute("note", existingNote);
+        return "updateNote";
+    }
+
+    // Update post
+    @PostMapping("/updateNote")
+    public String updateNote(@RequestParam Long id, @RequestParam String updatedNote) {
+        Notes existingNote = noteRepository.findById(id).orElse(null);
+        if (existingNote != null) {
+            existingNote.setNote(updatedNote);
+            noteRepository.save(existingNote);
+        }
+        return "redirect:/";
+    }
 }

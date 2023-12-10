@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}" />
     <title>Notes</title>
 </head>
-<body style="padding-left: 10px;">
+<body>
     <h1>Note Database</h1>
 
-    <form action="/saveNote" method="post" style="padding-bottom: 25px;">
+    <form action="/saveNote" method="post" class="saveForm">
         <label for="note">Add note:</label>
         <input type="text" id="note" name="note" required>
         <button type="submit">Save</button>
@@ -21,9 +22,13 @@
         </tr>
         <tr th:each="note : ${notes}">
             <td th:text="${note.id}"></td>
-            <td th:text="${note.note}" style="padding-left: 50px;"></td>
-            <td>
-                <form action="/deleteNote" method="get" style="padding-left: 10px;">
+            <td th:text="${note.note}" class="note"></td>
+            <td class="buttons">
+                <form action="/updateNote" method="get">
+                    <input type="hidden" name="id" th:value="${note.id}" />
+                    <button type="submit">Update</button>
+                </form>
+                <form action="/deleteNote" method="get">
                     <input type="hidden" name="id" th:value="${note.id}" />
                     <button type="submit">Delete</button>
                 </form>
