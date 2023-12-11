@@ -7,7 +7,6 @@
     <title>Notes</title>
   </head>
   <body>
-
     <!-- Login -->
     <div class="login-buttons">
       <div th:if="${!#authorization.expression('isAuthenticated()')}">
@@ -30,7 +29,14 @@
     <!-- Save note -->
     <form action="/saveNote" method="post" class="saveForm">
       <label for="note">Add note:</label>
-      <input type="text" id="note" name="note" maxlength="255" required />
+      <input
+        type="text"
+        id="note"
+        name="note"
+        maxlength="255"
+        required
+        th:disabled="${not #authorization.expression('isAuthenticated')}"
+      />
       <button
         type="submit"
         th:disabled="${not #authorization.expression('isAuthenticated')}"
@@ -70,6 +76,5 @@
         </td>
       </tr>
     </table>
-    
   </body>
 </html>
