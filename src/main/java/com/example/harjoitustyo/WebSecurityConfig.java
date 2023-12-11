@@ -24,7 +24,10 @@ public class WebSecurityConfig {
                 .logout((logout) -> logout
                         .logoutSuccessUrl("/")
                         .permitAll())
-                .csrf(csrf -> csrf.disable());
+                .csrf(csrf -> csrf.disable())
+                .headers(headers -> headers
+                        .frameOptions((frameOptions) -> frameOptions
+                                .sameOrigin()));
 
         return http.build();
     }
