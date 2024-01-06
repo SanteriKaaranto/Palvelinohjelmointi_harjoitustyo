@@ -7,24 +7,34 @@
     <title>Notes</title>
   </head>
   <body>
-    <!-- Login -->
+    <!-- Login/Logout -->
     <div class="login-buttons">
+      <!-- Login button -->
       <div th:if="${!#authorization.expression('isAuthenticated()')}">
-        <button type="button" onclick="window.location.href='/login'">
+        <button
+          type="button"
+          onclick="window.location.href='/login'"
+          class="loginButton"
+        >
           Login
         </button>
         <p th:unless="${#authorization.expression('isAuthenticated')}">
           Login to perform actions.
         </p>
       </div>
+      <!-- Logout button -->
       <div th:if="${#authorization.expression('isAuthenticated()')}">
-        <button type="button" onclick="window.location.href='/logout'">
+        <button
+          type="button"
+          onclick="window.location.href='/logout'"
+          class="logoutButton"
+        >
           Logout
         </button>
       </div>
     </div>
 
-    <h1>Note Database</h1>
+    <h1>Notes</h1>
 
     <!-- Save note -->
     <form action="/saveNote" method="post" class="saveForm">
@@ -55,20 +65,24 @@
         <td th:text="${note.id}"></td>
         <td th:text="${note.note}" class="note"></td>
         <td class="buttons">
+          <!-- Update note -->
           <form action="/updateNote" method="get">
             <input type="hidden" name="id" th:value="${note.id}" />
             <button
               type="submit"
               th:disabled="${not #authorization.expression('isAuthenticated')}"
+              class="updateButton"
             >
               Update
             </button>
           </form>
+          <!-- Delete note -->
           <form action="/deleteNote" method="get">
             <input type="hidden" name="id" th:value="${note.id}" />
             <button
               type="submit"
               th:disabled="${not #authorization.expression('isAuthenticated')}"
+              class="deleteButton"
             >
               Delete
             </button>

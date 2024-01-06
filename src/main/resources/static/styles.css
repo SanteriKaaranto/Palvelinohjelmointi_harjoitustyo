@@ -1,6 +1,6 @@
 body {
   padding-left: 10px;
-  background-color: lightblue;
+  background-color: rgb(181, 220, 232);
 }
 
 .note {
@@ -18,6 +18,29 @@ body {
   display: inline;
 }
 
+.updateButton {
+  background-color: #5bc9fc;
+  border: none;
+  border-radius: 5px;
+  padding: 3px 6px;
+}
+.updateButton:hover {
+  background-color: #059be1;
+  color: white;
+}
+
+.deleteButton {
+  background-color: #fc8282;
+  border: none;
+  border-radius: 5px;
+  padding: 3px 6px;
+}
+
+.deleteButton:hover {
+  background-color: #fb5050;
+  color: white;
+}
+
 .saveForm {
   padding-bottom: 25px;
 }
@@ -27,8 +50,32 @@ body {
   text-align: left;
 }
 
-.login-buttons button, .login-buttons p {
+.login-buttons button,
+.login-buttons p {
   display: inline;
   vertical-align: top;
   margin-right: 10px; /* Add some margin for spacing */
+}
+
+.loginButton {
+  background-color: #6be167;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 8px;
+}
+.loginButton:hover {
+  background-color: #4bb548;
+  color: white;
+}
+
+.logoutButton {
+  background-color: #fc8282;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 8px;
+}
+
+.logoutButton:hover {
+  background-color: #fb5050;
+  color: white;
 }
