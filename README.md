@@ -1,10 +1,9 @@
-# Palvelinohjelmointi_harjoitustyo
+# Java SpringBoot app ( Server programming course assignment )
 
-JDK 17/21
-
+A Note taking application built using Java SpringBoot (JDK 17)
 
 ### login: 
 
- > user
+ Username: user
 
- > password
+ Password: password
